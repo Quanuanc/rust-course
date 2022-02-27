@@ -1,19 +1,20 @@
 fn main() {
-    //引用与解引用
-    let x = 5;
-    let y = &x;
-    println!("{}", *y);
+    let mut s = String::new();
+    s.push_str("hello, world");
+    s.push('!');
+    println!("{}", s);
 
-    //引用
-    let s = String::from("hello");
-    let r1 = &s;
-    let r2 = &s;
-    println!("{}, {}", *r1, *r2);
+    let mut s = "nihao".to_string();
+    s.push('!');
+    println!("{}", s);
 
-    let s_ref = dangle();
-}
+    let s1 = String::from("hello,");
+    let s2 = String::from("world!");
 
-fn dangle() -> &String {
-    let s = String::from("s");
-    &s
+    let s3 = s1 + &s2;
+    println!("{}", s3);
+
+    let s4 = &s3[0..3];
+    println!("{}", s4);
+
 }
