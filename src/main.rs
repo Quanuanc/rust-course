@@ -1,12 +1,15 @@
 fn main() {
-    let a = 10;
-    let b: i32 = 20;
-    let mut c = 30i32; //可变变量
-    let d = 30_i32;
-    let e = add(add(a, b), add(c, d));
-    println!("(a+b)+(c+d)={}", e);
-}
+    let x = 5;
+    let x = x + 1;
 
-fn add(i: i32, j: i32) -> i32 {
-    i + j //没有分号，返回
+    {
+        let x = x * 2;
+        println!("x: {}", x);
+    }
+
+    println!("x: {}", x);
+
+    let spaces = "   ";
+    let spaces = spaces.len();
+    println!("spaces: {}", spaces);
 }
