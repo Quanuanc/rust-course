@@ -1,17 +1,27 @@
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: u64,
+fn main() {
+    let c1 = PokerCard{
+       suit: PokerSuit::Clubs,
+       value: 1
+    };
+    let c2 = PokerCard{
+        suit: PokerSuit::Diamonds,
+        value: 12
+    };
 }
 
-fn main() {
-    let user1 = User{
-        email: String::from("someone@example.com"),
-        username: String::from("someone123"),
-        active:true,
-        sign_in_count: 1,
-    };
-    let email = user1.email;
-    println!("{}", email);
+struct PokerCard{
+    suit: PokerSuit,
+    value: u8,
+}
+
+fn print_suit(card: PokerSuit) {
+    println!("{:?}", card);
+}
+
+#[derive(Debug)]
+enum PokerSuit {
+    Clubs,
+    Spades,
+    Diamonds,
+    Hearts,
 }
