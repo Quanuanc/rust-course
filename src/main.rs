@@ -1,29 +1,19 @@
 fn main() {
-    let s1 = String::from("hello");
-    let s2 = s1;
-    // println!("{}", s1); //这里会报错
+    //引用与解引用
+    let x = 5;
+    let y = &x;
+    println!("{}", *y);
 
-    let x: &str = "hello world";
-    let y = x;
-    println!("{},{}", x, y);
-
-    let s1 = String::from("nihao");
-    let s2 = s1.clone();
-    println!("{},{}", s1, s2);
-
+    //引用
     let s = String::from("hello");
-    take_ownership(s);
-    // println!("{}", s); //这里会报错
+    let r1 = &s;
+    let r2 = &s;
+    println!("{}, {}", *r1, *r2);
 
-    let i = 15;
-    makes_copy(i);
-    println!("{}", i);
+    let s_ref = dangle();
 }
 
-fn take_ownership(some_string: String) {
-    println!("{}", some_string);
-}
-
-fn makes_copy(some_integer: i32) {
-    println!("{}", some_integer);
+fn dangle() -> &String {
+    let s = String::from("s");
+    &s
 }
