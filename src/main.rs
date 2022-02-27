@@ -1,27 +1,23 @@
 fn main() {
-    let c1 = PokerCard{
-       suit: PokerSuit::Clubs,
-       value: 1
-    };
-    let c2 = PokerCard{
-        suit: PokerSuit::Diamonds,
-        value: 12
-    };
-}
+    let one = [1,2,3];
+    let two: [u8;3] =[1,2,3];
+    let blank1 = [0;3];
+    let blank2:[u8;3] = [0;3];
 
-struct PokerCard{
-    suit: PokerSuit,
-    value: u8,
-}
+    let arrays:[[u8;3];4] = [one,two,blank1,blank2];
 
-fn print_suit(card: PokerSuit) {
-    println!("{:?}", card);
-}
+    for a in &arrays{
+        print!("{:?}: ", a);
 
-#[derive(Debug)]
-enum PokerSuit {
-    Clubs,
-    Spades,
-    Diamonds,
-    Hearts,
+        for n in a.iter(){
+           print!("\t{} + 10 = {}", n, n+10); 
+        }
+
+        let mut sum = 0;
+        for i in 0..a.len(){
+            sum += a[i];
+        }
+
+        println!("\t{:?} = {}", a, sum);
+    }
 }
