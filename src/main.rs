@@ -1,23 +1,32 @@
 fn main() {
-    let one = [1,2,3];
-    let two: [u8;3] =[1,2,3];
-    let blank1 = [0;3];
-    let blank2:[u8;3] = [0;3];
+    let a = [1, 2, 3, 4, 5];
+    if a[2] > 3 {
+        println!(">");
+    } else if a[2] < 3 {
+        println!("<")
+    } else {
+        println!("=");
+    }
 
-    let arrays:[[u8;3];4] = [one,two,blank1,blank2];
+    for i in a {
+        print!("{} ", i);
+    }
 
-    for a in &arrays{
-        print!("{:?}: ", a);
+    println!();
 
-        for n in a.iter(){
-           print!("\t{} + 10 = {}", n, n+10); 
+    let mut i = 0;
+    while i < 5 {
+        print!("{} ", a[i]);
+        i += 1;
+    }
+    println!();
+    // loop 无条件循环
+    let mut ii = 0;
+    loop {
+        print!("{} ", ii);
+        ii += 1;
+        if ii == 10 {
+            break;
         }
-
-        let mut sum = 0;
-        for i in 0..a.len(){
-            sum += a[i];
-        }
-
-        println!("\t{:?} = {}", a, sum);
     }
 }
